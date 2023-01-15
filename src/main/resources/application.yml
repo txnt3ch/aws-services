@@ -1,0 +1,8 @@
+app:
+  version: ${APP_VERSION:-1.1.0}
+
+
+database:
+  url: x
+  username: y
+  password: z
