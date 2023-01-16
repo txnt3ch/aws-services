@@ -6,4 +6,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+
+    <changeSet id="02" author="txntech">
+        <sql>
+
+            insert into public.notifications (notification_channel,notification_title,notification_content,to_account_id,post_date)
+            values ('PUSH', 'Bank account balance update', 'Your bank account as been debited 2000.00 USD','user002','2023-01-16 16:05:30.483' );
+
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
