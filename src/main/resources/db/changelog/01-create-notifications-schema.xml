@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="01" author="txntech">
+        <sql>
+
+            create table notifications
+            (
+            id bigserial constraint notifications_pk primary key,
+            notification_channel varchar(50) not null,
+            notification_title varchar(50) not null,
+            notification_content varchar(50) not null,
+            to_account_id varchar(50) not null,
+            post_date timestamp
+            );
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

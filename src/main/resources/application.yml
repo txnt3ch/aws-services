@@ -6,3 +6,11 @@ database:
   url: x
   username: y
   password: z
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:55001/devdb
+    username: dev
+    password: devpassword
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml

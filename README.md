@@ -13,3 +13,11 @@
   - Password: admin
 
 - Create dev local credential and database
+- Config liquibase in build.gradle 
+  - implementation 'org.springframework.boot:spring-boot-starter-data-jdbc' 
+  - runtimeOnly 'org.postgresql:postgresql'
+  - implementation 'org.liquibase:liquibase-core'
+- Create resources/db/changelog/db.changelog-master.yaml. This will be picked by default
+- Config spring data source in application.yml
+- Create xml file for db change log, and include these files in db.changelog-master.yaml
+- Build. The change log will be updated to DB (local first).
