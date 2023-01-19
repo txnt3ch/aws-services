@@ -20,4 +20,11 @@
 - Create resources/db/changelog/db.changelog-master.yaml. This will be picked by default
 - Config spring data source in application.yml
 - Create xml file for db change log, and include these files in db.changelog-master.yaml
-- Build. The change log will be updated to DB (local first).
+- Build. The change log will be updated to DB (this is for local db).
+
+- Configure spring doc https://springdoc.org/v2/:
+  - Gradle config: implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+  - Change default Swagger URL in application.yml
+  - Visit Swagger doc at http://localhost:8080/<name in application.yml>
+  - Visit API spec at http://localhost:8080/v3/api-docs
+  - Json can be viewed at https://editor.swagger.io/
