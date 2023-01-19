@@ -1,5 +1,7 @@
 package txn.tech.awsservices.controller;
 import jakarta.annotation.Resource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import txn.tech.awsservices.dto.NotificationDto;
 import txn.tech.awsservices.service.NotificationService;
@@ -20,9 +22,9 @@ public class NotificationController {
     }
 
     @PostMapping("/notifications/add")
-    public String addNotification(@RequestBody NotificationDto notification) {
+    public ResponseEntity<NotificationDto> addNotification(@RequestBody NotificationDto notification) {
         notificationService.saveNotification(notification);
-        return "ok";
+        return ResponseEntity.status(HttpStatus.CREATED).body(notification);
     }
 
     @PostMapping("/notifications/delete/{id}")
