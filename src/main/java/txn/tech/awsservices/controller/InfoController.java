@@ -1,4 +1,4 @@
-package txn.tech.awsservices;
+package txn.tech.awsservices.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

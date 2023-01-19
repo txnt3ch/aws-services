@@ -8,7 +8,8 @@ public class AppConfig {
     public String getVersion() {
         return version;
     }
-@Value("${app.version}")
+
+    @Value("${app.version}")
     private String version;
 
 }
