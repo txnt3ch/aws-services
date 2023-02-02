@@ -1,4 +1,5 @@
 # aws-services
+- Create Github Action secret: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Value from AWS IAM > Users > <user> > Security credentials > access key
 
 - Download PostgreSQL image and run container. Default connection info:
     - Host: localhost
