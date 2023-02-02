@@ -9,12 +9,12 @@ database:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:55001/devdb
+    url: jdbc:postgresql://localhost:32769/devdb
     username: dev
     password: devpassword
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
-    shouldRun: false
+
 
 
 springdoc:
