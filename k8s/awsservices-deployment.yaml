@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: awsservices-linux-deployment
+  namespace: awsservices-app
+  labels:
+    app: awsservices-linux-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: awsservices-linux-app
+  template:
+    metadata:
+      labels:
+        app: awsservices-linux-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: kubernetes.io/arch
+                    operator: In
+                    values:
+                      - amd64
+                      - arm64
+      containers:
+        - name: awsservices-container
+          image: 588184019567.dkr.ecr.ap-southeast-1.amazonaws.com/awsservices:latest
+          ports:
+            - name: http
+              containerPort: 80
+          env:
+            - name: DB_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: env-configmap
+                  key: DB_URL
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: env-secrets
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: env-secrets
+                  key: DB_PASSWORD
+          imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: linux

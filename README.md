@@ -29,3 +29,48 @@
   - Visit Swagger doc at http://localhost:8080/<name in application.yml>
   - Visit API spec at http://localhost:8080/v3/api-docs
   - Json can be viewed at https://editor.swagger.io/
+
+
+
+**DEPLOYMENT**
+- For simplicity, this tutorial will not deploy the app using argocd but k8s deployment
+  - Create k8s/awsservices-deployment.yaml and k8s/awsservices-service.yaml
+
+  - 
+  - ========== START Clean up ==============================
+- #Delete namespace
+  - kubectl delete namespace awsservices-app
+
+- #Delete cluster
+  - eksctl delete cluster --name awsservices-cluster --region ap-southeast-1
+
+#========== END Clean up ==============================
+
+
+#===== Create cluster
+- eksctl create cluster --name awsservices-cluster --region ap-southeast-1 --instance-types <instance type>
+
+#===== Create application namespace
+- kubectl create namespace awsservices-app
+
+
+- Create RDS  https://aws.amazon.com/getting-started/hands-on/create-connect-postgresql-db/
+  - Note that for demo purpose, the DB instance need to setup for public access, as well as the VPC security group (e.g. inbound rule) must be configured for public access if we need to use DBMS tool from laptop
+- Create configMap and secrets, udpate with RDS credential For secreit, need to use stringData instead of data so no need to do encoding the value
+  - kubectl apply -f ./k8s/env-configmap.yml
+  - kubectl apply -f ./k8s/env-secrets.yml
+    - Note that we need to set the namespace in configmap/secret yml files
+
+
+
+#===== Apply deployment & service manifest, or check the argocd/apps repo
+- kubectl apply -f ./k8s/awsservices-deployment.yaml
+- kubectl apply -f ./k8s/awsservices-service.yaml
+- Check pod status: 
+  - kubectl get pod -o wide --namespace awsservices-app
+- #Run shell on a pod - to replace with pod ID. Then curl the localhost:8080/<url>
+  - kubectl exec -it <pod ID> -n awsservices-app -- /bin/bash
+
+
+
+

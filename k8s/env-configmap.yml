@@ -1,0 +1,9 @@
+# Use config map for not-secret configuration data
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-configmap
+  namespace: awsservices-app
+data:
+  DB_URL: jdbc:postgresql://devdb.cz2vwd1erxct.ap-southeast-1.rds.amazonaws.com:5432/devdb
