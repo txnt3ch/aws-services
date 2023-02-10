@@ -35,8 +35,6 @@
 **DEPLOYMENT**
 - For simplicity, this tutorial will not deploy the app using argocd but k8s deployment
   - Create k8s/awsservices-deployment.yaml and k8s/awsservices-service.yaml
-
-  - 
   - ========== START Clean up ==============================
 - #Delete namespace
   - kubectl delete namespace awsservices-app
