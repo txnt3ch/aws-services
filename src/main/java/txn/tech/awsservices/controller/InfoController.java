@@ -22,7 +22,7 @@ public class InfoController {
 
     @GetMapping("/")
     public String getInfo(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return appConfig.getVersion()+"abc";
+        return appConfig.getVersion()+"-";
     }
 
     @GetMapping("/database")
