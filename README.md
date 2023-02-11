@@ -21,6 +21,7 @@
 - Create resources/db/changelog/db.changelog-master.yaml. This will be picked by default
 - Config spring data source in application.yml
 - Create xml file for db change log, and include these files in db.changelog-master.yaml
+- Create JPA classes. Ref: https://github.com/spring-guides/gs-accessing-data-jpa
 - Build. The change log will be updated to DB (this is for local db).
 
 - Configure spring doc https://springdoc.org/v2/:
@@ -70,5 +71,27 @@
   - kubectl exec -it <pod ID> -n awsservices-app -- /bin/bash
 
 
+KAFKA - LOCAL
+- Ref:
+  - c
+  - https://codenotfound.com/spring-kafka-consumer-producer-example.html
+  - https://github.com/code-not-found/spring-kafka
+
+- Create docker-compose.yml to setup local Kafka
+- Run: docker compose up -d
+- Update application.yml with Kafka config
+- Run command to create topic "notification"
+
+```
+docker compose exec broker \
+  kafka-topics --create \
+    --topic notification \
+    --bootstrap-server localhost:9092 \
+    --replication-factor 1 \
+    --partitions 1
+```
+
+- Create config, consumer and receiver classes in kafka package
+- Create KafkaController, then update Receiver.java to save notification to database
 
 

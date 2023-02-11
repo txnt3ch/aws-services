@@ -6,4 +6,6 @@ metadata:
   name: env-configmap
   namespace: awsservices-app
 data:
-  DB_URL: jdbc:postgresql://devdb.cz2vwd1erxct.ap-southeast-1.rds.amazonaws.com:5432/devdb
+  POSTGRES_HOST: devdb.cz2vwd1erxct.ap-southeast-1.rds.amazonaws.com
+  POSTGRES_PORT: 5432
+  DB_NAME: devdb

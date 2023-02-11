@@ -1,14 +1,21 @@
 app:
-  version: ${APP_VERSION:-0.0.1}
+  version: ${APP_VERSION:0.0.1}
 
 
 spring:
   datasource:
-    url: ${DB_URL:-jdbc:postgresql://localhost:32770/devdb}
-    username: ${DB_USERNAME:-dev}
-    password: ${DB_PASSWORD:-devpassword}
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:32770}/${DB_NAME:devdb}
+    username: ${DB_USERNAME:dev}
+    password: ${DB_PASSWORD:devpassword}
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
+kafka:
+  bootstrap-servers: localhost:9092
+  producer:
+  consumer:
+    group-id: mygroup
+    auto-offset-reset: earliest
+
 
 
 
