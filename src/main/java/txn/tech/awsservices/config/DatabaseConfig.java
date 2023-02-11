@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 // also can use @Data (lombok) for getters and setters
-@ConfigurationProperties(prefix = "database")
+@ConfigurationProperties(prefix = "spring.datasource")
 @Component
 public class DatabaseConfig {
 
