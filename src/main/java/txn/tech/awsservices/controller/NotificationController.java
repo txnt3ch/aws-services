@@ -7,6 +7,7 @@ import txn.tech.awsservices.dto.NotificationDto;
 import txn.tech.awsservices.service.NotificationService;
 
 import java.util.List;
+// Configure datasource in application.yaml
 // Create entity Notification to map with database table
 // Create dto NotificationDTO as Data Transfer Object to use in REST
 // Create NotificationRepository interface that inherit JpaRepository
