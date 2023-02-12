@@ -16,6 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
 // Create consumer and producer config and bean classes (Consumer, ConsumerConfig, Receiver, ReceiverConfig)
 // Create KafkaController for sample of sending event
 // The consumer is autowired, and will save a notification to database (Receiver.java)
+//
 
 
 
