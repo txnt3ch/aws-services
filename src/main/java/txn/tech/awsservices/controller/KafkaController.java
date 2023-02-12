@@ -26,7 +26,7 @@ public class KafkaController {
 
     private final AtomicLong counter = new AtomicLong();
 
-    @GetMapping("kafka/send")
+    @GetMapping("/kafka/send")
     public String sendEvent(@RequestParam(value = "payload", defaultValue = "{nothing}") String payload) {
         sender.send(payload);
         return String.format("Kafka event %s: %s", counter.incrementAndGet(), payload);

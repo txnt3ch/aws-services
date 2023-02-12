@@ -27,7 +27,7 @@ spec:
                       - arm64
       containers:
         - name: awsservices-container
-          image: 588184019567.dkr.ecr.ap-southeast-1.amazonaws.com/awsservices:latest
+          image: 588184019567.dkr.ecr.ap-southeast-1.amazonaws.com/awsservices:0.0.4
           ports:
             - name: http
               containerPort: 80

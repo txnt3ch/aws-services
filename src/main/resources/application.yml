@@ -1,5 +1,5 @@
 app:
-  version: ${APP_VERSION:0.0.2}
+  version: ${APP_VERSION:0.0.4}
 
 
 spring:
