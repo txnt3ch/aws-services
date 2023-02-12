@@ -1,5 +1,6 @@
 # aws-services
-- Create Github Action secret: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Value from AWS IAM > Users > <user> > Security credentials > access key
+- TO use GitHub action to push to ECR: Create Github Action secret: AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Value from AWS IAM > Users > <user> > Security credentials > access key
+- Otherwise, to go ECR > repo > view push commands to push from local
 - Create Dockerfile
 - Download PostgreSQL image and run container. Default connection info:
     - Host: localhost
@@ -76,7 +77,6 @@
 
 KAFKA - LOCAL
 - Ref:
-  - c
   - https://codenotfound.com/spring-kafka-consumer-producer-example.html
   - https://github.com/code-not-found/spring-kafka
 
