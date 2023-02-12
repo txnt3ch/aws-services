@@ -1,7 +1,7 @@
 # GitHub recommends pinning actions to a commit SHA.
 # To get a newer version, you will need to update the SHA.
 # You can also reference a tag or branch, but the action may change without warning.
-#...
+#....
 
 name: Deploy to Amazon ECR same tag
 
@@ -68,3 +68,4 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
           cat src/main/resources/application.yml
+          cat src/main/java/txn/text/awsservices/controller/KafkaController.java
