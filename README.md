@@ -43,6 +43,9 @@
 - #Delete cluster
   - eksctl delete cluster --name awsservices-cluster --region ap-southeast-1
 
+- #Delete RDS
+- #Delete MSK
+
 #========== END Clean up ==============================
 
 
